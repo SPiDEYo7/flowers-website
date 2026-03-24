@@ -1,4 +1,4 @@
-# 🌸 Bloom — Digital Flower Bouquets & Love Cards
+# 🌸PetalNote — Digital Flower Bouquets & Love Cards
 
 > Awwwards-level full-stack web application for sending animated 3D flower bouquets and cinematic love cards via shareable links.
 
