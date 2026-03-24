@@ -1,0 +1,210 @@
+/* Fonts are loaded via next/font/google in app/layout.tsx — no manual @import needed */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* CSS variables set by next/font via className on <html> */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sub:     'Sora', system-ui, sans-serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #0D0D0D;
+  color: #FAFAFA;
+  overflow-x: hidden;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF4D6D;
+  border-radius: 4px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(255, 77, 109, 0.3);
+  color: #fff;
+}
+
+/* ─── Neo-Brutalist Components ─── */
+@layer components {
+  .neo-btn {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3
+           font-sub font-bold text-neo-black bg-petal-pink
+           border-3 border-neo-black
+           shadow-neo
+           transition-all duration-150
+           cursor-pointer select-none
+           hover:-translate-y-1 hover:-translate-x-1 hover:shadow-neo-lg
+           active:translate-y-1 active:translate-x-1 active:shadow-none;
+  }
+
+  .neo-btn-dark {
+    @apply neo-btn bg-neo-black text-neo-white border-neo-white shadow-[4px_4px_0px_#FAFAFA];
+  }
+
+  .neo-btn-rose {
+    @apply neo-btn bg-rose text-neo-white;
+  }
+
+  .neo-btn-purple {
+    @apply neo-btn bg-violet text-neo-white;
+  }
+
+  .neo-card {
+    @apply relative bg-cream border-3 border-neo-black shadow-neo-lg;
+  }
+
+  .neo-card-dark {
+    @apply relative bg-neo-black border-3 border-neo-white shadow-[6px_6px_0px_#FAFAFA];
+  }
+
+  .neo-input {
+    @apply w-full px-4 py-3 bg-cream text-neo-black
+           border-3 border-neo-black shadow-neo
+           font-sub placeholder:text-neo-black/40
+           focus:outline-none focus:shadow-neo-pink focus:-translate-y-0.5 focus:-translate-x-0.5
+           transition-all duration-150;
+  }
+
+  .neo-tag {
+    @apply inline-flex items-center px-3 py-1
+           bg-lavender text-neo-black
+           border-2 border-neo-black shadow-[2px_2px_0px_#0D0D0D]
+           text-sm font-sub font-bold;
+  }
+
+  /* ─── Glow Effects ─── */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(255, 77, 109, 0.8), 0 0 40px rgba(255, 77, 109, 0.4);
+  }
+
+  .glow-box {
+    box-shadow: 0 0 30px rgba(255, 77, 109, 0.3), 0 0 60px rgba(155, 89, 182, 0.2);
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #FFB3C6, #C8B6E2, #FFB3C6, #FF85A1, #FFB3C6);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* ─── Canvas Container ─── */
+  .canvas-container {
+    @apply absolute inset-0 w-full h-full;
+  }
+
+  /* ─── Section Layout ─── */
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+  }
+
+  /* ─── Floating Petal ─── */
+  .petal {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+}
+
+/* ─── GSAP Clip Path Animations ─── */
+.clip-reveal {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+.clip-reveal.revealed {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ─── Three.js Canvas ─── */
+canvas {
+  display: block;
+}
+
+/* ─── Loading Screen ─── */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0D0D0D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Custom Range Input ─── */
+input[type='range'] {
+  -webkit-appearance: none;
+  height: 4px;
+  background: linear-gradient(90deg, #FF4D6D, #C8B6E2);
+  border-radius: 2px;
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #FAFAFA;
+  border: 3px solid #0D0D0D;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #0D0D0D;
+}
+
+/* ─── Flower Selector Card ─── */
+.flower-card {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.2s ease;
+}
+.flower-card:hover {
+  transform: translateY(-4px) rotate(2deg);
+}
+.flower-card.selected {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* ─── Card Experience ─── */
+.card-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
