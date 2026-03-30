@@ -13,7 +13,7 @@ import { MediaUploader } from '@/components/creator/MediaUploader';
 import { SharePanel } from '@/components/creator/SharePanel';
 import { FlowerPicker } from '@/components/bouquet/FlowerPicker';
 import { PremadeBouquets } from '@/components/bouquet/PremadeBouquets';
-import { LiveBouquetPreview } from '@/components/LiveBouquetPreview';
+import { LiveBouquetPreview } from '@/components/bouquet/LiveBouquetPreview';
 
 // AudioTrimmer is browser-only (WaveSurfer requires window)
 const AudioTrimmer = dynamic(
@@ -740,10 +740,93 @@ export default function CreatePage() {
         </div>
       </nav>
 
-      <div className="flex flex-1 flex-col lg:flex-row overflow-hidden">
-        {/* ── Left: Live Bouquet Preview ────────────────────────────────── */}
-        <div className="lg:w-1/2 h-72 lg:h-auto relative border-b-2 lg:border-b-0 lg:border-r-2 border-neo-white/10 overflow-hidden bg-[#0D0D0D]">
-          <LiveBouquetPreview />
+      <div className="flex flex-1 flex-col lg:flex-row">
+        {/* ── Left: Live Bouquet Preview — sticky, full viewport height ── */}
+        <div
+          className="border-b-2 lg:border-b-0 lg:border-r-2 border-neo-white/10"
+          style={{
+            position: 'sticky',
+            top: 0,
+            width: '50vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+            flexShrink: 0,
+            background: 'radial-gradient(ellipse at 30% 60%, rgba(130,45,85,0.55) 0%, #0D0D0D 70%)',
+          }}
+        >
+          {/* Keyframe animations */}
+          <style>{`
+            @keyframes float {
+              0%, 100% { transform: translateY(0px) scale(1); }
+              50% { transform: translateY(-20px) scale(1.05); }
+            }
+            @keyframes twinkle {
+              0%, 100% { opacity: 0.2; transform: scale(1); }
+              50% { opacity: 0.7; transform: scale(1.4); }
+            }
+          `}</style>
+
+          {/* ── Orb 1: pink ───────────────────────────────────────────── */}
+          <div style={{
+            position: 'absolute', zIndex: 0,
+            width: '300px', height: '300px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,100,150,0.12), transparent)',
+            top: '20%', left: '30%',
+            animation: 'float 6s ease-in-out infinite',
+            pointerEvents: 'none',
+          }} />
+
+          {/* ── Orb 2: purple ─────────────────────────────────────────── */}
+          <div style={{
+            position: 'absolute', zIndex: 0,
+            width: '200px', height: '200px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(150,100,255,0.10), transparent)',
+            top: '50%', left: '20%',
+            animation: 'float 8s ease-in-out infinite reverse',
+            pointerEvents: 'none',
+          }} />
+
+          {/* ── Orb 3: golden ─────────────────────────────────────────── */}
+          <div style={{
+            position: 'absolute', zIndex: 0,
+            width: '250px', height: '250px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,180,100,0.08), transparent)',
+            top: '30%', left: '50%',
+            animation: 'float 7s ease-in-out infinite 2s',
+            pointerEvents: 'none',
+          }} />
+
+          {/* ── Sparkle dots ──────────────────────────────────────────── */}
+          {[
+            { top: '15%', left: '18%', delay: '0s',   opacity: 0.4 },
+            { top: '72%', left: '14%', delay: '0.8s', opacity: 0.3 },
+            { top: '28%', left: '78%', delay: '1.4s', opacity: 0.5 },
+            { top: '60%', left: '72%', delay: '0.4s', opacity: 0.35 },
+            { top: '82%', left: '42%', delay: '1.9s', opacity: 0.6 },
+            { top: '10%', left: '55%', delay: '1.1s', opacity: 0.3 },
+          ].map((s, i) => (
+            <div
+              key={`spark-${i}`}
+              style={{
+                position: 'absolute', zIndex: 0,
+                width: '4px', height: '4px',
+                borderRadius: '50%',
+                background: 'white',
+                top: s.top, left: s.left,
+                opacity: s.opacity,
+                animation: `twinkle 3s ease-in-out infinite ${s.delay}`,
+                pointerEvents: 'none',
+              }}
+            />
+          ))}
+
+          {/* ── Bouquet preview — above all background effects ────────── */}
+          <div style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <LiveBouquetPreview />
+          </div>
         </div>
 
         {/* ── Right: Step forms ──────────────────────────────────────────── */}

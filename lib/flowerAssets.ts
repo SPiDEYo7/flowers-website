@@ -27,7 +27,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   rose: {
     id: 'rose',
     name: 'Rose',
-    imageUrl: '/flowers/rose.png.jpg',
+    imageUrl: '/flowers/rose.png',
     color: '#f472b6',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fce7f3, #fbcfe8)',
     glowColor: 'rgba(244, 114, 182, 0.4)',
@@ -35,7 +35,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   tulip: {
     id: 'tulip',
     name: 'Tulip',
-    imageUrl: '/flowers/tulip.png.jpg',
+    imageUrl: '/flowers/tulip.png',
     color: '#ec4899',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fdf2f8, #fce7f3)',
     glowColor: 'rgba(236, 72, 153, 0.4)',
@@ -43,7 +43,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   peony: {
     id: 'peony',
     name: 'Peony',
-    imageUrl: '/flowers/peony.png.jpg',
+    imageUrl: '/flowers/peony.png',
     color: '#f9a8d4',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fdf2f8, #fce7f3)',
     glowColor: 'rgba(249, 168, 212, 0.4)',
@@ -51,7 +51,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   sunflower: {
     id: 'sunflower',
     name: 'Sunflower',
-    imageUrl: '/flowers/sunflower.png.jpg',
+    imageUrl: '/flowers/sunflower.png',
     color: '#fbbf24',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fefce8, #fef3c7)',
     glowColor: 'rgba(251, 191, 36, 0.4)',
@@ -59,7 +59,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   daisy: {
     id: 'daisy',
     name: 'Daisy',
-    imageUrl: '/flowers/daisy.png.jpg',
+    imageUrl: '/flowers/daisy.png',
     color: '#facc15',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fefce8, #fef3c7)',
     glowColor: 'rgba(250, 204, 21, 0.4)',
@@ -67,7 +67,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   dahlia: {
     id: 'dahlia',
     name: 'Dahlia',
-    imageUrl: '/flowers/dahlia.png.jpg',
+    imageUrl: '/flowers/dahlia.png',
     color: '#c026d3',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fae8ff, #f5d0fe)',
     glowColor: 'rgba(192, 38, 211, 0.4)',
@@ -75,7 +75,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   carnation: {
     id: 'carnation',
     name: 'Carnation',
-    imageUrl: '/flowers/carnation.png.png',
+    imageUrl: '/flowers/carnation.png',
     color: '#fb7185',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fff1f2, #ffe4e6)',
     glowColor: 'rgba(251, 113, 133, 0.4)',
@@ -83,7 +83,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   gerbera: {
     id: 'gerbera',
     name: 'Gerbera',
-    imageUrl: '/flowers/gerbera.png.jpg',
+    imageUrl: '/flowers/gerbera.png',
     color: '#f97316',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fff7ed, #ffedd5)',
     glowColor: 'rgba(249, 115, 22, 0.4)',
@@ -91,7 +91,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   anemone: {
     id: 'anemone',
     name: 'Anemone',
-    imageUrl: '/flowers/anemone.png.jpg',
+    imageUrl: '/flowers/anemone.png',
     color: '#7c3aed',
     bgGradient: 'radial-gradient(circle at 30% 30%, #f5f3ff, #ede9fe)',
     glowColor: 'rgba(124, 58, 237, 0.4)',
@@ -99,7 +99,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   cherry: {
     id: 'cherry',
     name: 'Cherry Blossom',
-    imageUrl: '/flowers/cherry-blossom.png.jpg',
+    imageUrl: '/flowers/cherry-blossom.png',
     color: '#fbcfe8',
     bgGradient: 'radial-gradient(circle at 30% 30%, #fdf2f8, #fce7f3)',
     glowColor: 'rgba(251, 207, 232, 0.4)',
@@ -107,7 +107,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   lavender: {
     id: 'lavender',
     name: 'Lavender',
-    imageUrl: '/flowers/lavender.png.jpg',
+    imageUrl: '/flowers/lavender.png',
     color: '#a78bfa',
     bgGradient: 'radial-gradient(circle at 30% 30%, #f5f3ff, #ede9fe)',
     glowColor: 'rgba(167, 139, 250, 0.4)',
@@ -115,7 +115,7 @@ export const FLOWER_ASSETS: Record<FlowerId, FlowerAsset> = {
   lily: {
     id: 'lily',
     name: 'Lily',
-    imageUrl: '/flowers/lily.png.jpg',
+    imageUrl: '/flowers/lily.png',
     color: '#e9d5ff',
     bgGradient: 'radial-gradient(circle at 30% 30%, #faf5ff, #f3e8ff)',
     glowColor: 'rgba(233, 213, 255, 0.4)',
@@ -140,42 +140,42 @@ export const PREMADE_BOUQUETS: PremadeBouquet[] = [
   {
     id: 'romantic-pink',
     name: 'Romantic Blush',
-    imageUrl: '/bouquets/romantic-blush.png.jpg',
+    imageUrl: '/bouquets/romantic-blush.png',
     flowers: ['rose', 'rose', 'peony', 'carnation', 'cherry', 'rose'],
     description: 'Soft pink roses & peonies wrapped in kraft',
   },
   {
     id: 'sunny-garden',
     name: 'Sunny Garden',
-    imageUrl: '/bouquets/sunny-garden.png.jpg',
+    imageUrl: '/bouquets/sunny-garden.png',
     flowers: ['sunflower', 'sunflower', 'gerbera', 'daisy', 'sunflower', 'daisy'],
     description: 'Bright sunflowers & daisies in paper wrap',
   },
   {
     id: 'purple-elegance',
     name: 'Lavender Dreams',
-    imageUrl: '/bouquets/purple-elegance.png.jpg',
+    imageUrl: '/bouquets/purple-elegance.png',
     flowers: ['lily', 'lavender', 'anemone', 'dahlia', 'lily', 'lavender'],
     description: 'Elegant purple lilies & lavender sprigs',
   },
   {
     id: 'garden-mix',
     name: 'Garden Mix',
-    imageUrl: '/bouquets/garden-mix.png.jpg',
+    imageUrl: '/bouquets/garden-mix.png',
     flowers: ['rose', 'tulip', 'dahlia', 'gerbera', 'daisy', 'lavender', 'carnation'],
     description: 'A vibrant mix of garden favorites',
   },
   {
     id: 'pastel-dreams',
     name: 'Pastel Dreams',
-    imageUrl: '/bouquets/pastel-dreams.png.jpg',
+    imageUrl: '/bouquets/pastel-dreams.png',
     flowers: ['peony', 'peony', 'tulip', 'cherry', 'rose', 'peony'],
     description: 'Soft pastel peonies & tulips wrapped gently',
   },
   {
     id: 'bold-blooms',
     name: 'Bold Blooms',
-    imageUrl: '/bouquets/bold-blooms.png.jpg',
+    imageUrl: '/bouquets/bold-blooms.png',
     flowers: ['dahlia', 'dahlia', 'gerbera', 'carnation', 'anemone', 'dahlia'],
     description: 'Vibrant dahlias & gerberas with ribbon',
   },
